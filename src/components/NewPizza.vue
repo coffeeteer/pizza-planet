@@ -73,6 +73,7 @@ export default{
     },
     methods: {
         addMenuItem() {
+            window.console.log(this.newPizza)
             dbMenuRef.push(this.newPizza)
         }
     }

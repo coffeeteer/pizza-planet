@@ -15,7 +15,10 @@ Vue.use(VueRouter)
 const routes = [
   { path: '/', name: 'homeLink', component: Home},
   { path: '/menu', name: 'menuLink', component: Menu},
-  { path: '/admin', name: 'adminLink', component: Admin},
+  { path: '/admin', name: 'adminLink', component: Admin, beforeEnter: (to, from, next) => {
+    alert('Halt: Restricted Area!')
+    next();
+  }},
   { path: '/about', name: 'aboutLink', component: About, children: [
       { path: '/contact', name: 'contactLink', component: Contact },
       { path: '/history', name: 'historyLink', component: History },
@@ -27,8 +30,16 @@ const routes = [
 
 const router = new VueRouter({
   routes,
-  mode: 'history'
+  mode: 'history',
+  scrollBehavior(to, from, savedPosition){
+    return {x: 0, y: 0}
+  }
 });
+router.beforeEach((to, from, next) => {
+  alert('Navigation has been triggered.')
+  next(true)
+});
+
 
 new Vue({
   el: '#app',

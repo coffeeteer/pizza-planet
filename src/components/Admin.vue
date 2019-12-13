@@ -68,17 +68,12 @@ export default{
         ppNewPizza: NewPizza,
         ppLogin: Login
     },
-    data(){
-        return{
-            name: 'Chris'
+    beforeRouteLeave: (to, from, next) => {
+        if(confirm('Have you remembered to logout') === true){
+            next();
+        } else{
+            next(false);
         }
-    },
-    beforeRouteEnter: (to, from, next) => {
-        to()
-        from()
-        next(vm => {
-            alert('Hi ' +vm.name)
-        })
-    } 
+    }
 }
 </script>

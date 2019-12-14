@@ -8,6 +8,7 @@ import Delivery from './components/Delivery.vue'
 import History from './components/History.vue'
 import OrderingGuide from './components/OrderingGuide.vue'
 import Admin from './components/Admin.vue'
+
 import App from './App.vue'
 
 Vue.use(VueRouter)

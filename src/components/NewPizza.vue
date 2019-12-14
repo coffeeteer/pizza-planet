@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import { dbMenuRef } from '../firebaseConfig'
+import { dbMenuRef } from '../../../firebaseConfig'
 export default{
     data(){
         return{
